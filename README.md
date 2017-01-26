@@ -1,1 +1,1 @@
-Used for storage of . (dot) files to set up a new environment.
+Stores files necessary for setting up a new Linux environment.
