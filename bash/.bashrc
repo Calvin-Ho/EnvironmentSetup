@@ -116,6 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Personal Additions After This Line
+
 # set vi mode while in terminal
 set -o vi
 
