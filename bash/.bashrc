@@ -118,6 +118,9 @@ fi
 
 # Personal Additions After This Line
 
+export EDITOR="vim"
+export VISUAL="vim"
+
 # set vi mode while in terminal
 set -o vi
 
