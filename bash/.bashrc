@@ -124,7 +124,13 @@ export VISUAL="vim"
 # set vi mode while in terminal
 set -o vi
 
+# turn autocd on 
+#shopt -s autocd
+
 # create function to be able to read Markdown files
 md () {
    pandoc $1 | lynx -stdin
 }
+
+# Reformat bash prompt, adding current time
+export PS1="\e[0;32m[\D{%r}]\w$ \e[m"
