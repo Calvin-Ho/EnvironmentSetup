@@ -1,5 +1,7 @@
-" Sets title of file to be in title bar 
+" Sets title of file to be in title bar and disable changing console window
+" title when exiting vim
 set title
+set titleold=""
 
 " Always show the status line
 set laststatus=2
@@ -53,10 +55,10 @@ set novisualbell
 set wildmenu
 set wildmode=list:longest,full
 
-" Highlight characters ok a line that exceed 80 chars
+" Highlight characters on a line that exceed 80 chars
 " cterm 225 is a light salmon color
-" highlight ColorColumn ctermbg=225
-" call matchadd('ColorColumn', '\%81v', 100) 
+highlight ColorColumn ctermbg=225
+call matchadd('ColorColumn', '\%81v', 80)
 
 " Show matching brackets when text indicator is over them
 set showmatch 
@@ -95,5 +97,8 @@ set t_Co=256
 " Enable syntax highlighting
 syntax on
 
+" Use dark background
+set background=dark
+
 " Set color scheme
-colorscheme desert
+colorscheme hybrid
