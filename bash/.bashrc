@@ -116,7 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ----------------------------------
 # Personal Additions After This Line
+# ----------------------------------
 
 export EDITOR="vim"
 export VISUAL="vim"
