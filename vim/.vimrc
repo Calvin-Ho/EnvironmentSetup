@@ -82,7 +82,7 @@ nnoremap <Esc><Esc> :noh<Return>
 " inoremap [ []<Esc>i 
 " inoremap < <><Esc>i 
 
-" Return to last edit position when opening files (You want this!)
+" Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -102,3 +102,9 @@ set background=dark
 
 " Set color scheme
 colorscheme hybrid
+
+" Commenting macro (// in front of line bound to Ctrl + /)
+map <C-_> ^i//<ESC>
+
+" Package Manager [Pathogen]
+execute pathogen#infect()
