@@ -1,0 +1,92 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+" {--------------- LOOK AND FEEL----------------------------
+"
+" Turn off word wrap on load and when typing
+:set nowrap
+:set formatoptions-=t
+:set textwidth=100
+
+" Turn on line numbers
+:set number
+
+" Turn on syntax and set color scheme
+syntax on
+colorscheme apprentice
+
+" Set Vim to use 256 colors
+set t_Co=256
+
+" Set font and font size for Vim
+set guifont=Inconsolata:h12:cANSI
+
+" Always show the status line
+set laststatus=2
+
+" Always show current cursor position
+set ruler
+
+" }--------------- LOOK AND FEEL ---------------------------
+
+
+" {--------------- INTERNAL BEHAVIORS ----------------------
+"
+" Enable command line tab completion
+" On first tab press: 
+"     a list of completions will be shown and the command will
+"     be completed to the longest common command. 
+" On second tab press:
+"     the wildmenu will show up with all the completions
+"     that were listed before. 
+set wildmenu
+set wildmode=list:longest,full
+
+" If filetype is not set, set to 'txt'
+autocmd BufEnter * if &filetype == "" | setlocal filetype=txt | endif
+
+" Set tab to insert 3 spaces upon usage
+set tabstop=3 shiftwidth=3 expandtab
+
+" Highlight characters on a line that exceed 80 chars
+" cterm 225 is a light salmon color
+highlight ColorColumn ctermbg=225 guibg=#ed9595
+call matchadd('ColorColumn', '\%81v', 80)
+
+" Show matching brackets when text indicator is over them
+set showmatch 
+
+" Ignore case when searching
+set ignorecase
+
+" }--------------- INTERNAL BEHAVIORS ----------------------
+
+
+" {--------------- EXTERNAL BEHAVIORS ----------------------
+
+" Hack to maximize windows on startup
+au GUIEnter * simalt ~x
+
+" Set working directory to always be same as currently open file
+set autochdir
+
+" Disable swap files and backup files
+set noswapfile
+set nobackup
+set nowritebackup
+
+" }--------------- EXTERNAL BEHAVIORS ----------------------
+
+
+
+" {--------------- KEY BINDINGS ----------------------------
+"
+" Bind double Esc in normal mode to clear highlights
+:nmap <Esc><Esc> :noh<Enter>
+
+" Bind ss in normal mode to write current file
+:nmap ss :w<Enter>
+" }--------------- KEY BINDINGS ----------------------------
+
