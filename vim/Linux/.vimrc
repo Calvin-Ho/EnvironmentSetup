@@ -63,8 +63,9 @@ call matchadd('ColorColumn', '\%81v', 80)
 " Show matching brackets when text indicator is over them
 set showmatch 
 
-" Ignore case when searching
+" Ignore case when searching, but also use smartcase
 set ignorecase
+set smartcase
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. 
