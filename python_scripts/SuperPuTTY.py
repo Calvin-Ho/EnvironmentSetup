@@ -8,7 +8,7 @@ SESSION_COUNT = 6
 
 # Hard-coded coordinates for interactive program elements
 # -------------------------------------------------------------------------------
-# (Not really any way to make this better currently # as pyautogui has no support
+# (Not really any way to make this better currently as pyautogui has no support
 # for in-window references [8/20/18])
 host_field_coords = (330, 73)
 open_sess_check_coords = (1038, 74)
