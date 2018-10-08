@@ -46,14 +46,14 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+   if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+   # We have color support; assume it's compliant with Ecma-48
+   # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+   # a case would tend to support setf rather than setaf.)
+      color_prompt=yes
+   else
+      color_prompt=
+   fi
 fi
 
 if [ "$color_prompt" = yes ]; then
@@ -126,7 +126,7 @@ export VISUAL="vim"
 # set vi mode while in terminal
 set -o vi
 
-# turn autocd on 
+# turn autocd on
 #shopt -s autocd
 
 # create function to be able to read Markdown files
@@ -134,5 +134,15 @@ md () {
    pandoc $1 | lynx -stdin
 }
 
+# Function for ejecting a drive (similar to Windows safe eject)
+seject () {
+   if [ -z "$1" ]
+   then
+      echo "Usage: seject [dev_name]"
+   else
+      sudo udisksctl power-off -b "$1"
+   fi
+}
+
 # Reformat bash prompt, adding current time
-export PS1="\e[0;32m[\D{%r}]\w$ \e[m"
+export PS1="\e[0;32m[\D{%r}]\w> \e[m"
