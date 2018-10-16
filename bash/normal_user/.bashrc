@@ -135,4 +135,4 @@ md () {
 }
 
 # Reformat bash prompt, adding current time
-export PS1="\e[0;32m[\D{%r}]\w$ \e[m"
+export PS1="\e[0;32m[\D{%r}]\w$ \[\e[m\]"
