@@ -1,9 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-#      	name = Calvin Ho -T (calviho - HCL AMERICA INC at Cisco)
-#      	email = calviho@cisco.com
-	email = CalvinHoEmail@gmail.com
 	name = Calvin-Ho
 [core]
 	editor = vim
