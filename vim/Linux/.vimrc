@@ -58,7 +58,7 @@ set wildmode=list:longest,full
 " Highlight characters on a line that exceed 80 chars
 " cterm 225 is a light salmon color
 highlight ColorColumn ctermbg=225
-call matchadd('ColorColumn', '\%81v', 80)
+call matchadd('ColorColumn', '\%101v', 100)
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -83,14 +83,15 @@ nnoremap <Esc><Esc> :noh<Return>
 " inoremap [ []<Esc>i
 " inoremap < <><Esc>i
 
-" Return to last edit position when opening files
+"{{{ Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+"}}}
 
 " Trigger autoread on buffer change or window refocus
-autocmd FocusedGained,BufEnter * :silent! !
+autocmd FocusGained,BufEnter * :silent! !
 
 " Turn on line numbers
 set number
@@ -105,10 +106,34 @@ syntax on
 set background=dark
 
 " Set color scheme
-colorscheme hybrid
+colorscheme zenburn
 
 " Commenting macro (// in front of line bound to Ctrl + /)
 map <C-_> ^i//<ESC>
+
+"" Binds to move between splits easily
+:noremap <silent> <C-h> :wincmd h<CR>
+:noremap <silent> <C-j> :wincmd j<CR>
+:noremap <silent> <C-k> :wincmd k<CR>
+:noremap <silent> <C-l> :wincmd l<CR>
+
+" Set foldmethod to 'marker'- default marker is '\}}}'
+set foldmethod=marker
+
+" vim-airline settings
+
+" Tabline settings
+" {{{
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+" }}}
+
+" Syntastic settings
+" {{{
+let g:airline#extensions#syntastic#enabled = 1
+" }}}
 
 " Package Manager [Pathogen]
 execute pathogen#infect()
