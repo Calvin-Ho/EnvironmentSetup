@@ -117,23 +117,16 @@ map <C-_> ^i//<ESC>
 :noremap <silent> <C-k> :wincmd k<CR>
 :noremap <silent> <C-l> :wincmd l<CR>
 
-" Set foldmethod to 'marker'- default marker is '\}}}'
-set foldmethod=marker
-
 " vim-airline settings
 
 " Tabline settings
-" {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
-" }}}
 
 " Syntastic settings
-" {{{
 let g:airline#extensions#syntastic#enabled = 1
-" }}}
 
 " Package Manager [Pathogen]
 execute pathogen#infect()
