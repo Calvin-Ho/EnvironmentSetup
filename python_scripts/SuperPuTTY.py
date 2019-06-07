@@ -2,7 +2,6 @@ import pyautogui
 import time
 import sys
 
-# SESSION_COUNT defaults to 10 if not otherwise specified as command line argument
 SESSION_COUNT = 10
 USER_DELAY = 5
 
@@ -28,31 +27,41 @@ login_info = {}
 # to navigate them to correct directory
 # (As of Python 3.6, dict insertion order is presevered so don't worry about ordering)
 name_to_path_map = {
-    'trunk/infra' : ['trunk', 'cd infra'],
-    'trunk/inventory' : ['trunk', 'cd inventory'],
-    'trunk/pds_configs' : ['trunk', 'cd pds-configs'],
-    'trunk/pdsscripts' : ['trunk', 'cd pdsscripts'],
-    'trunk/platforms' : ['trunk', 'cd platforms'],
-    'rapollo/config' : ['rapollo', 'cd config'],
-    'rapollo/scripts' : ['rapollo', 'cd scripts/pdsscripts'],
-    'asrlogs' : ['asrlogs'],
-    'isrlogs' : ['isrlogs'],
-    'miscellaneous' : []
+    'infra' : ['srg_diags', 'cd infra'],
+    'inventory' : ['srg_diags', 'cd inventory'],
+    'configs' : ['srg_diags', 'cd configs'],
+    'scripts' : ['srg_diags', 'cd scripts'],
+    'platforms/ASR1K' : ['srg_diags', 'cd platforms/ASR1K'],
+    'platforms/ISR' : ['srg_diags', 'cd platforms/ISR'],
+    '13RU-ESP200-1' : ['logs', 'cd ASR1K-13RU-ESP',  'cd 13RU-ESP200-1'],
+    '13RU-ESP100-1' : ['logs', 'cd ASR1K-13RU-ESP',  'cd 13RU-ESP100-1'],
+    '6RUX-ArgusX-1' : ['logs', 'cd ASR1K-6RUX-ArgusX',  'cd 6RUX-ArgusX-1'],
+    'Fugazi-1' : ['logs', 'cd ASR1K-Fugazi',  'cd Fugazi-1'],
+    'Gladius-1' : ['logs', 'cd ASR1K-Gladius',  'cd Gladius-1'],
+    'GreenDay' : ['logs', 'cd ASR1K-Greenday',  'cd Greenday'],
+    'Kahuna-1' : ['logs', 'cd ASR1K-Kahuna',  'cd Kahuna-1'],
+    'Kahuna-2' : ['logs', 'cd ASR1K-Kahuna',  'cd Kahuna-2'],
+    'Kingpin-1' : ['logs', 'cd ASR1K-Kingpin',  'cd Kingpin-1'],
+    'Nightster-1' : ['logs', 'cd ASR1K-Nightster',  'cd Nightster-1'],
+    'Ramones' : ['logs', 'cd ASR1K-Ramones',  'cd Ramones'],
+    'SpeedRacer-1' : ['logs', 'cd ASR1K-SpeedRacer',  'cd SpeedRacer-1'],
+    'SpeedRacer-2' : ['logs', 'cd ASR1K-SpeedRacer',  'cd SpeedRacer-2'],
+    'Neptune-1' : ['logs', 'cd ISR-Neptune',  'cd Neptune-1'],
+    'Neptune-2' : ['logs', 'cd ISR-Neptune',  'cd Neptune-2'],
+    'Neptune-3' : ['logs', 'cd ISR-Neptune',  'cd Neptune-3'],
+    'misc1' : ['srg_diags'],
+    'misc2' : ['srg_diags'],
+    'misc3' : ['srg_diags'],
+    'misc4' : ['srg_diags'],
+    'misc5' : ['srg_diags'],
+    'srg-vm-2: 1' : ['srg_diags'],
+    'srg-vm-2: 2' : ['srg_diags'],
     }
 
 def main():
-    global SESSION_COUNT
+    SESSION_COUNT = len(name_to_path_map)
 
-    if len(sys.argv) >= 2:
-        read_login_info(sys.argv[1])
-        if len(sys.argv) == 3:
-            print("\nSetting SESSION_COUNT to {}\n".format(sys.argv[2]))
-            SESSION_COUNT = int(sys.argv[2])
-        else:
-            print("\nUsing default SESSION_COUNT of {}...\n".format(SESSION_COUNT))
-    else:
-        print("Usage: SuperPuTTY.py [login_file] [session_count]")
-        sys.exit()
+    print("\nUsing SESSION_COUNT of {}...\n".format(SESSION_COUNT))
 
     # Allow time for user to abort program if they wish to
     print(">>> Allowing user {} seconds to kill script with Ctrl-C <<<".format(USER_DELAY))
