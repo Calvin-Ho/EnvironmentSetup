@@ -72,10 +72,11 @@ au GUIEnter * simalt ~x
 " Set working directory to always be same as currently open file
 set autochdir
 
-" Disable swap files and backup files
+" Disable swap files, backup files, and undo files
 set noswapfile
 set nobackup
 set nowritebackup
+set noundofile
 
 " }--------------- EXTERNAL BEHAVIORS ----------------------
 
