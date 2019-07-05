@@ -145,4 +145,12 @@ seject () {
 }
 
 # Reformat bash prompt, adding current time
-export PS1="\e[0;32m[\D{%r}]\w> \[\e[m\]"
+export PS1="\[\e[0;32m\][\D{%r}]\w> \[\e[m\]"
+
+# Add Flutter to $PATH
+export PATH="$PATH:/opt/flutter/bin"
+
+# VTE fix for Tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
