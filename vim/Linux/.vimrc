@@ -107,5 +107,10 @@ colorscheme hybrid
 " Commenting macro (// in front of line bound to Ctrl + /)
 map <C-_> ^i//<ESC>
 
+" Some vim-airline customizations:
+"
+" Show all buffers in the tabline
+let g:airline#extensions#tabline#enabled = 1
+
 " Package Manager [Pathogen]
 execute pathogen#infect()
