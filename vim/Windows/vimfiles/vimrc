@@ -21,7 +21,7 @@ colorscheme apprentice
 set t_Co=256
 
 " Set font and font size for Vim
-set guifont=Inconsolata:h12:cANSI
+set guifont=Inconsolata:h14:cANSI
 
 " Always show the status line
 set laststatus=2
