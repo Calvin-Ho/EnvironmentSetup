@@ -109,8 +109,9 @@ map <C-_> ^i//<ESC>
 
 " Some vim-airline customizations:
 "
-" Show all buffers in the tabline
+" Show buffers in the tabline and enable buffer numbers
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Package Manager [Pathogen]
 execute pathogen#infect()
