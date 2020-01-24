@@ -34,9 +34,17 @@ set smarttab
 " Turn off word wrap on longer lines
 set wrap
 set linebreak
-set nolist
 set textwidth=0
 set wrapmargin=0
+
+" Setting listchars
+set showbreak=↪\
+set listchars=tab:→\
+set listchars+=eol:↲
+set listchars+=nbsp:␣
+set listchars+=space:•
+set listchars+=extends:⟩
+set listchars+=precedes:⟨
 
 " Add extra margin to the left
 set foldcolumn=1
@@ -46,7 +54,7 @@ set noerrorbells
 set novisualbell
 
 " Enable command line tab completion
-" On first tab press: 
+" On first tab press:
 "     a list of completions will be shown and the command will
 "     be completed to the longest common command. 
 " On second tab press:
