@@ -1,0 +1,3 @@
+[submodule "syntastic"]
+	path = vim/Linux/.vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
