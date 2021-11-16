@@ -1,3 +1,11 @@
 [submodule "syntastic"]
 	path = vim/Linux/.vim/bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "vim-airline-Linux"]
+	path = vim/Linux/.vim/bundle/vim-airline
+   url = https://github.com/vim-airline/vim-airline.git
+   shallow = true
+[submodule "vim-airline-MacOS"]
+	path = vim/MacOS/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+   shallow = true
